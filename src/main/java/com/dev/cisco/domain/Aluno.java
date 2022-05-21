@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Cache;
@@ -15,11 +17,11 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name="aluno")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
-@Getter
-@Setter
+@Data
+
 public class Aluno implements Serializable {
 	
-	private static final long serialVersionUID = 4048798961366546485l;
+	private static final long serialVersionUID = 4048798961366546485L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
