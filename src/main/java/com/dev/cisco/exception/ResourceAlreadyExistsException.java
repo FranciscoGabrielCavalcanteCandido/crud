@@ -1,6 +1,6 @@
 package com.dev.cisco.exception;
 
-public class ResourceAlreadyExistsException {
+public class ResourceAlreadyExistsException extends Exception {
 	
 	public ResourceAlreadyExistsException() {
 	}
