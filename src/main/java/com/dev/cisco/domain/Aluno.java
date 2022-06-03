@@ -14,10 +14,13 @@ import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name="aluno")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
-@Data
+@Getter
+@Setter
 
 public class Aluno implements Serializable {
 	
@@ -28,6 +31,7 @@ public class Aluno implements Serializable {
 	private Long id;
 	
 	@NotBlank
+	@Schema(description = "Nome do aluno",example = "Joao Santos",required=true)
 	private String nome;
 	
 	private String cpf;

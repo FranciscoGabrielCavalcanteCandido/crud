@@ -30,9 +30,13 @@ import com.dev.cisco.exception.ResourceAlreadyExistsException;
 import com.dev.cisco.exception.ResourceNotFoundException;
 import com.dev.cisco.service.AlunoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api")
 @Tag(name = "aluno", description = "Api para CRUD de aluno")
+@Tag(name="aluno", description = "Api de Aluno")
 public class AlunoController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -51,6 +55,7 @@ public class AlunoController {
 		}
 	}
 	
+	@Operation(summary = "Busca ID", description = "Buscar um aluno por ID", tags = {"aluno"})
 	@GetMapping(value="/aluno/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Aluno>findAlunoById(@PathVariable long id){
 		
